@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import styles from  './ReposTable.css';
+import { connect } from 'react-redux';
+import styles from './ReposTable.css';
 
 function ReposTable(props) {
   const { data } = props;
@@ -10,9 +10,7 @@ function ReposTable(props) {
       <td>{el.name}</td>
       <td>{el.stargazers_count}</td>
       <td>
-        <a href={el.html_url}>
-          {el.html_url}
-        </a>
+        <a href={el.html_url}>{el.html_url}</a>
       </td>
     </tr>
   );
@@ -27,15 +25,9 @@ function ReposTable(props) {
           <th>Link:</th>
         </tr>
       </thead>
-      <tbody>
-        {data.map(renderTr)}
-      </tbody>
+      <tbody>{data.map(renderTr)}</tbody>
     </table>
-  )
+  );
 }
 
-const mapStateToProps = state => ({
-  data: state.githubReducer.data
-});
-
-export default connect(mapStateToProps)(ReposTable)
+export default ReposTable;

@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import App from "./containers/App";
-import { Provider } from "react-redux";
-import ReactDOM from "react-dom";
+import App from './containers/App';
+import { Provider } from 'mobx-react';
+import RootStore from './mobxStore/RootStore';
+import ReactDOM from 'react-dom';
 import store from './store';
 
-console.log('===========================');
-console.log('store', store.getState());
-console.log('===========================');
+const mobxStore = new RootStore({ gitHubUserRepositoriesStore: { user: 'pvpshoot' } });
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider {...mobxStore}>
     <App />
   </Provider>,
-  document.getElementById("root"));
+  document.getElementById('root'),
+);

@@ -1,0 +1,3 @@
+.table tr:nth-child(odd) td{
+ background: #ccc
+}
